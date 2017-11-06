@@ -1,0 +1,12 @@
+.home {
+  background: #fed;
+  padding: 20px;
+
+  & h1 {
+    margin: 0;
+  }
+
+  & iframe {
+    border: 0;
+  }
+}

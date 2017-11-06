@@ -1,0 +1,23 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "8.9"
+        }
+      }
+    ],
+    "stage-3"
+  ],
+  "plugins": [
+    [
+      "css-modules-transform",
+      {
+        "generateScopedName": "node-hipster-starter-[local]"
+      }
+    ],
+    "transform-flow-strip-types",
+    ["transform-react-jsx", {"pragma": "h"}]
+  ]
+}
