@@ -16,6 +16,9 @@ cd node-hipster-starter
 rm -rf .git
 git init
 # Update package.json and README to make it your own
+npm install
+# Run `npm run watch` to start developing
+# Or `npm run build && npm start` to run production version
 ```
 
 ## Module Name Dropping
