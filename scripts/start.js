@@ -5,9 +5,10 @@ const express = require('express')
 const path = require('path')
 
 const config = {
-  manifest: require('../build/client/manifest.json'),
-  port: 3000
+  manifest: require('../build/client/manifest.json')
 }
+
+const port = 3000
 
 // Setup HTTP server
 const app = express()
@@ -18,20 +19,22 @@ app.use((req, res, next) => {
 })
 
 // Start HTTP server
-const server = app.listen(config.port, err => {
+const server = app.listen(port, err => {
   if (err) {
     console.log(err)
     process.exit(1)
   } else {
     const host = server.address().address
-    console.log(`Listening at http://${host}:${config.port}`)
+    console.log(`Listening at http://${host}:${port}`)
   }
 })
 
 // Log uncaught exceptions and rejections
 process.on('uncaughtException', err => {
   console.error(`Uncaught exception occured: ${err}`)
+  process.exit(1)
 })
 process.on('unhandledRejection', (reason, p) => {
   console.error('Unhandled rejection occured:', p, 'reason:', reason)
+  process.exit(1)
 })

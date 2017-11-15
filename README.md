@@ -1,16 +1,12 @@
 # node-hipster-starter
 
-Real frontend hipsters don’t follow no trend 🙅🏼‍♂️
+Hipster starter repos don’t follow no trend (and don’t use no emojis).
 
 ## Features
 
-* **Universal routing** on top of `express` and `path-to-regexp`.
-* **Hot reloading** on the server and on the client.
-* **Bundled server code** using webpack (in production).
-* **ES6** (stage 3) support using `babel`.
-* **Simple application** structure.
-* **Declarative**. It easier to reason about.
-* **Sane defaults**. Not too much bling.
+* **Simple application structure** using a few meaningful directories, virtual DOM and CSS modules.
+* **Hot reloads** the server and client in development.
+* **Bundles server and client code** in production.
 
 ## If I can do it so can you
 
@@ -27,7 +23,9 @@ git init
 * `eslint` with `standard`
 * `express` (’cause it’s all I need)
 * `flow`
+* `husky`
+* `jest`
 * `postcss` with plugins
-* `path-to-regexp`
 * `preact` (’cause it’s tiny)
+* `supertest`
 * `webpack` (ugh)

@@ -4,6 +4,9 @@ html {
 }
 
 body {
-  background: #dfe;
-  margin: 20px;
+  margin: 0;
+}
+
+.frame {
+  padding: 15px;
 }

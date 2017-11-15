@@ -19,9 +19,10 @@ const config = {
     'app.js': 'app.js',
     'frame.js': 'frame.js',
     'frame.css': 'frame.css'
-  },
-  port: 3000
+  }
 }
+
+const port = 3000
 
 // Setup server-side watcher
 const watcher = chokidar.watch(sourcePath)
@@ -59,11 +60,11 @@ app.use(
 )
 
 // Start HTTP server
-app.listen(config.port, err => {
+app.listen(port, err => {
   if (err) {
     console.log(err)
     process.exit(1)
   } else {
-    console.log(`Listening at http://localhost:${config.port}`)
+    console.log(`Listening at http://localhost:${port}`)
   }
 })

@@ -1,22 +1,11 @@
 // @flow
 
-import {create} from 'universal/client'
-import {render} from 'preact'
-import './index.css'
-import * as routes from './routes'
+/** @jsx h */
 
-const config = {
-  manifest: {}
-}
+import {h, render} from 'preact'
+import Root from './Root'
+import './index.css'
 
 const rootElm: any = document.getElementById('root')
 
-const client = create({
-  render (res) {
-    document.title = `${res.title} (client)`
-    render(res.body, rootElm, rootElm.firstChild)
-  },
-  routes: routes.create(config)
-})
-
-client.listen()
+render(<Root />, rootElm, rootElm.firstChild)
