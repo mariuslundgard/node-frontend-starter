@@ -2,7 +2,7 @@
 
 /** @jsx createElement */
 
-import express from 'express'
+import {Router} from 'express'
 import layout from 'layout'
 import {createElement} from 'vdom'
 import {render} from 'vdom/server'
@@ -12,7 +12,7 @@ import type {$Request, $Response} from 'express'
 import type {Config} from '../types'
 
 export function create (config: Config) {
-  const router = express.Router()
+  const router = Router()
 
   router.get('/', async (req: $Request, res: $Response) =>
     res.send(
