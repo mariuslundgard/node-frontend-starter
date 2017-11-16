@@ -1,11 +1,11 @@
 // @flow
 
-/** @jsx h */
+/** @jsx createElement */
 
 import express from 'express'
 import layout from 'layout'
-import {h} from 'preact'
-import {render} from 'preact-render-to-string'
+import {createElement} from 'vdom'
+import {render} from 'vdom/server'
 import Root from './Root'
 
 import type {$Request, $Response} from 'express'
