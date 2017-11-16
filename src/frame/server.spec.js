@@ -5,7 +5,7 @@ import supertest from 'supertest'
 import * as server from './server'
 
 describe('frame', () => {
-  it('should respond with a rendered component', () => {
+  it('should respond with a rendered component', async () => {
     const app = express()
 
     app.use(
@@ -17,13 +17,11 @@ describe('frame', () => {
       })
     )
 
-    return supertest(app)
-      .get('/')
-      .then(res => {
-        expect(res.text).toContain('<title>Frame</title>')
-        expect(res.text).toContain('<link rel="stylesheet" href="/frame.css">')
-        expect(res.text).toContain('<div class="node-hipster-starter-frame"><h1>Frame</h1></div>')
-        expect(res.text).toContain('<script src="/frame.js"></script>')
-      })
+    const res = await supertest(app).get('/')
+
+    expect(res.text).toContain('<title>Frame</title>')
+    expect(res.text).toContain('<link rel="stylesheet" href="/frame.css">')
+    expect(res.text).toContain('<div class="node-hipster-starter-frame"><h1>Frame</h1></div>')
+    expect(res.text).toContain('<script src="/frame.js"></script>')
   })
 })

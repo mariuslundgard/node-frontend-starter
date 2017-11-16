@@ -14,7 +14,7 @@ import type {Config} from '../types'
 export function create (config: Config) {
   const router = express.Router()
 
-  router.get('/', (req: $Request, res: $Response) =>
+  router.get('/', async (req: $Request, res: $Response) =>
     res.send(
       layout({
         title: 'Frame',
