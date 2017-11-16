@@ -14,8 +14,8 @@ module.exports = {
     frame: ['webpack-hot-middleware/client', './src/frame/client']
   },
   output: {
-    publicPath: '/',
     path: path.join(__dirname, '../build/static'),
+    publicPath: '/',
     filename: '[name].js'
   },
   resolve: {
