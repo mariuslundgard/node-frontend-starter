@@ -31,7 +31,7 @@ module.exports = {
               'env',
               {
                 targets: {
-                  browsers: ['last 2 Chrome versions']
+                  node: '8.9.1'
                 }
               }
             ],
