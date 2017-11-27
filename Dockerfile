@@ -9,7 +9,7 @@ ENV TZ=Europe/Oslo
 # Install node modules
 RUN mkdir /tmp/npm
 COPY package.json package-lock.json README.md /tmp/npm/
-RUN cd /tmp/npm && npm install --no-progress --loglevel error
+RUN cd /tmp/npm && npm install --no-progress --loglevel warn
 
 # Set working dir
 WORKDIR /usr/src/app
