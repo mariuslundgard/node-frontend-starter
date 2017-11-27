@@ -1,8 +1,8 @@
 // @flow
 
-/** @jsx createElement */
+/** @jsx h */
 
-import {Component, createElement} from 'vdom'
+import {Component, h} from 'preact'
 import style from './index.css'
 
 class Root extends Component<any> {

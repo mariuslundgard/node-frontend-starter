@@ -40,7 +40,7 @@ module.exports = {
             ],
             'stage-3'
           ],
-          plugins: ['transform-flow-strip-types', ['transform-react-jsx', {pragma: 'createElement'}]]
+          plugins: ['transform-flow-strip-types', ['transform-react-jsx', {pragma: 'h'}]]
         }
       },
       {

@@ -42,7 +42,7 @@ module.exports = {
           ],
           plugins: [
             'transform-flow-strip-types',
-            ['transform-react-jsx', {pragma: 'createElement'}],
+            ['transform-react-jsx', {pragma: 'h'}],
             [
               'transform-runtime',
               {
