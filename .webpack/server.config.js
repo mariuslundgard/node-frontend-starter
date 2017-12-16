@@ -31,7 +31,7 @@ module.exports = {
               'env',
               {
                 targets: {
-                  node: '8.9.1'
+                  node: '9.3.0'
                 }
               }
             ],
