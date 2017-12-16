@@ -26,7 +26,8 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: /(src)/,
+        exclude: /node_modules/,
+        include: /src/,
         options: {
           babelrc: false,
           presets: [

@@ -1,16 +1,16 @@
 {
   "name": "node-hipster-starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "Real hipster starter repos don’t follow no trend (and don’t use no emojis).",
   "main": "src/server.js",
   "scripts": {
     "build": "npm run build-client && npm run build-server",
-    "build-client": "webpack --optimize-minimize --config .webpack/production.config.js",
+    "build-client": "webpack --config .webpack/production.config.js --optimize-minimize",
     "build-server": "webpack --config .webpack/server.config.js",
     "clean": "rimraf build",
     "clean-install": "rimraf node_modules package-lock.json && npm install",
     "docker-build": "docker build -t mariuslundgard/node-hipster-starter .",
-    "docker-run": "docker run --rm --name node-hipster-starter --publish 3000:3000 mariuslundgard/node-hipster-starter",
+    "docker-run": "docker run --rm --publish 3000:3000 mariuslundgard/node-hipster-starter",
     "lint": "eslint .",
     "prebuild": "npm run clean",
     "precommit": "npm run lint && npm run typecheck && npm test",
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/mariuslundgard/node-hipster-starter#readme",
   "engineStrict": true,
   "engines": {
-    "node": "8.9.1"
+    "node": "9.3.0"
   },
   "dependencies": {
     "compression": "^1.7.1",
