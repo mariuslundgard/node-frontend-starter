@@ -1,6 +1,6 @@
 # node-hipster-starter
 
-Hipster starter repos don’t follow no trend (and don’t use no emojis).
+Real hipster starter repos don’t follow no trend (and don’t use no emojis).
 
 ## Features
 
