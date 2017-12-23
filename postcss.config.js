@@ -2,8 +2,8 @@
 
 const postcssCssVariables = require('postcss-css-variables')
 const autoprefixer = require('autoprefixer')
-const postCssNested = require('postcss-nested')
+const postCssNesting = require('postcss-nesting')
 
 module.exports = {
-  plugins: [postCssNested, postcssCssVariables, autoprefixer]
+  plugins: [postCssNesting, postcssCssVariables, autoprefixer]
 }
