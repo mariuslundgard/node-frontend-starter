@@ -24,11 +24,13 @@ npm install
 ## Module Name Dropping
 
 * `eslint` with `standard`
+* `eslint-prettier-cli`
 * `express` (’cause it’s all I need)
 * `flow`
 * `husky`
 * `jest`
 * `postcss` with plugins
 * `preact` (’cause it’s tiny)
+* `prettier`
 * `supertest`
 * `webpack` (ugh)

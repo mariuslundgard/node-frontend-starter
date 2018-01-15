@@ -21,7 +21,7 @@ describe('app', () => {
 
     expect(res.text).toContain('<title>App</title>')
     expect(res.text).toContain('<link rel="stylesheet" href="/app.css">')
-    expect(res.text).toContain('<div class="node-hipster-starter-app"><h1>App</h1><iframe src="/frame"></iframe></div>')
+    expect(res.text).toContain('<div class="node-hipster-starter-app">')
     expect(res.text).toContain('<script src="/app.js"></script>')
   })
 })

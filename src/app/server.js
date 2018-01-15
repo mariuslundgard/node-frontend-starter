@@ -19,7 +19,10 @@ export function create (config: Config) {
       layout({
         title: 'App',
         head: `<link rel="stylesheet" href="/${config.manifest['app.css']}">`,
-        body: `<div id="root">${render(<Root />)}</div><script src="/${config.manifest['app.js']}"></script>`
+        body: [
+          `<div id="root">${render(<Root />)}</div>`,
+          `<script src="/${config.manifest['app.js']}"></script>`
+        ].join('')
       })
     )
   )

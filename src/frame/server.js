@@ -19,7 +19,10 @@ export function create (config: Config) {
       layout({
         title: 'Frame',
         head: `<link rel="stylesheet" href="/${config.manifest['frame.css']}">`,
-        body: `<div id="root">${render(<Root />)}</div><script src="/${config.manifest['frame.js']}"></script>`
+        body: [
+          `<div id="root">${render(<Root />)}</div>`,
+          `<script src="/${config.manifest['frame.js']}"></script>`
+        ].join('')
       })
     )
   )

@@ -9,5 +9,8 @@
   "extends": [
     "standard",
     "standard-preact"
-  ]
+  ],
+  "rules": {
+    "object-curly-spacing": ["error", "never"]
+  }
 }
