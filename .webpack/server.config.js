@@ -23,32 +23,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: /(src)/,
-        options: {
-          babelrc: false,
-          presets: [
-            [
-              'env',
-              {
-                targets: {
-                  node: '9.3.0'
-                }
-              }
-            ],
-            'stage-3'
-          ],
-          plugins: [
-            'transform-flow-strip-types',
-            ['transform-react-jsx', {pragma: 'h'}],
-            [
-              'css-modules-transform',
-              {
-                generateScopedName: 'node-hipster-starter-[local]',
-                extensions: ['.css']
-              }
-            ]
-          ]
-        }
+        include: /(src)/
       }
     ]
   },
