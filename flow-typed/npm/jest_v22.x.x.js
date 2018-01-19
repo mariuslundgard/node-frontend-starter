@@ -1,5 +1,5 @@
-// flow-typed signature: 8a6d495ef15f96f0d0c836b6aa70a1cd
-// flow-typed version: cfa05a2b8e/jest_v21.x.x/flow_>=v0.39.x
+// flow-typed signature: 6e1fc0a644aa956f79029fec0709e597
+// flow-typed version: 07ebad4796/jest_v22.x.x/flow_>=v0.39.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -271,8 +271,8 @@ type JestExpectType = {
    *
    * Alias: .toThrowError
    */
-  toThrow(message?: string | Error | RegExp): void,
-  toThrowError(message?: string | Error | RegExp): void,
+  toThrow(message?: string | Error | Class<Error> | RegExp): void,
+  toThrowError(message?: string | Error | Class<Error> | RegExp): void,
   /**
    * Use .toThrowErrorMatchingSnapshot to test that a function throws a error
    * matching the most recent snapshot when it is called.
@@ -310,6 +310,10 @@ type JestObjectType = {
    * mocked function.
    */
   resetAllMocks(): JestObjectType,
+  /**
+   * Restores all mocks back to their original value.
+   */
+  restoreAllMocks(): JestObjectType,
   /**
    * Removes any pending timers from the timer system.
    */
