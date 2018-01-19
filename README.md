@@ -8,6 +8,46 @@ Real hipster starter repos don’t follow no trend (and don’t use no emojis).
 * **Hot reloads** the server and client in development.
 * **Bundles server and client code** in production.
 
+## Philosophy
+
+I don’t particularly like grouping isomorphic code by environment category like this:
+
+```
+src/
+  browser/
+  server/
+  shared/
+```
+
+... because it quickly leads to duplicate directories:
+
+```
+src/
+  browser/
+    v1/
+      app/
+      frame/
+  server/
+    v1/
+      app/
+      frame/
+```
+
+Instead, I’d organize code by screen and use files for platform separation:
+
+```
+src/
+  v1/
+    app/
+      browser.js
+      server.js
+    frame/
+      browser.js
+      server.js
+```
+
+This way, it’s easier to work within scopes of functionality.
+
 ## If I can do it so can you
 
 ```sh
