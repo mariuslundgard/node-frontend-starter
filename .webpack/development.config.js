@@ -37,11 +37,12 @@ module.exports = {
                   browsers: ['last 2 Chrome versions']
                 }
               }
-            ],
-            'stage-3'
+            ]
           ],
           plugins: [
+            'transform-class-properties',
             'transform-flow-strip-types',
+            'transform-object-rest-spread',
             ['transform-react-jsx', {pragma: 'h'}]
           ]
         }

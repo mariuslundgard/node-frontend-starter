@@ -7,11 +7,12 @@
           "node": "9.4.0"
         }
       }
-    ],
-    "stage-3"
+    ]
   ],
   "plugins": [
+    "transform-class-properties",
     "transform-flow-strip-types",
+    "transform-object-rest-spread",
     ["transform-react-jsx", {"pragma": "h"}],
     [
       "css-modules-transform",

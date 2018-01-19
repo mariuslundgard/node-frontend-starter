@@ -38,11 +38,12 @@ module.exports = {
                   browsers: ['last 2 versions', 'IE 10']
                 }
               }
-            ],
-            'stage-3'
+            ]
           ],
           plugins: [
+            'transform-class-properties',
             'transform-flow-strip-types',
+            'transform-object-rest-spread',
             ['transform-react-jsx', {pragma: 'h'}],
             [
               'transform-runtime',
