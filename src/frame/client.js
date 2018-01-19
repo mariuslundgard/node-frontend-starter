@@ -4,8 +4,8 @@
 
 import {h, render} from 'preact'
 import Root from './Root'
-import './index.css'
+import style from './index.css'
 
-const rootElm: any = document.getElementById('root')
+const rootElm: any = document.getElementById(style.root)
 
 render(<Root />, rootElm, rootElm.firstChild)

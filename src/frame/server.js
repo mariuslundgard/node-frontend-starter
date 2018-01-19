@@ -6,6 +6,7 @@ import {Router} from 'express'
 import layout from 'layout'
 import {h} from 'preact'
 import {render} from 'preact-render-to-string'
+import style from './index.css'
 import Root from './Root'
 
 import type {$Request, $Response} from 'express'
@@ -20,7 +21,7 @@ export function create (config: Config) {
         title: 'Frame',
         head: `<link rel="stylesheet" href="/${config.manifest['frame.css']}">`,
         body: [
-          `<div id="root">${render(<Root />)}</div>`,
+          `<div id="${style.root}">${render(<Root />)}</div>`,
           `<script src="/${config.manifest['frame.js']}"></script>`
         ].join('')
       })
