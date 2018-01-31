@@ -2,7 +2,6 @@
 src/
 
 [ignore]
-.*/node_modules/fbjs/.*
 node_modules/
 
 [libs]
