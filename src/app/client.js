@@ -1,9 +1,13 @@
-/* global __HOT__ */
+/* global __DEV__ */
 
 /** @jsx h */
 
 import {h, render} from 'preact'
 import style from './index.css'
+
+if (__DEV__) {
+  require('preact/devtools')
+}
 
 const rootElm: any = document.getElementById(style.root)
 
@@ -12,7 +16,7 @@ function renderRoot () {
   render(<Root />, rootElm, rootElm.firstChild)
 }
 
-if (__HOT__) {
+if (__DEV__) {
   module.hot.accept('./Root', () => {
     renderRoot()
   })

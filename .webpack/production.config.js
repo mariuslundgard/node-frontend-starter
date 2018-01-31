@@ -79,7 +79,7 @@ module.exports = {
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      __HOT__: 'false',
+      __DEV__: 'false',
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new CaseSensitivePathsPlugin(),

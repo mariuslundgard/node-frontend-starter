@@ -79,7 +79,7 @@ module.exports = {
     new CaseSensitivePathsPlugin(),
     new ManifestPlugin(),
     new webpack.DefinePlugin({
-      __HOT__: 'true',
+      __DEV__: 'true',
       'process.env.NODE_ENV': JSON.stringify('development')
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
