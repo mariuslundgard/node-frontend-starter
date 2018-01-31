@@ -1,11 +1,21 @@
-// @flow
+/* global __HOT__ */
 
 /** @jsx h */
 
 import {h, render} from 'preact'
-import Root from './Root'
 import style from './index.css'
 
 const rootElm: any = document.getElementById(style.root)
 
-render(<Root />, rootElm, rootElm.firstChild)
+function renderRoot () {
+  const Root = require('./Root').default
+  render(<Root />, rootElm, rootElm.firstChild)
+}
+
+if (__HOT__) {
+  module.hot.accept('./Root', () => {
+    renderRoot()
+  })
+}
+
+renderRoot()
