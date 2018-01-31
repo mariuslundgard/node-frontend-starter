@@ -51,10 +51,9 @@ This way, it’s easier to work within scopes of functionality.
 ## If I can do it so can you
 
 ```sh
-git clone git@github.com:mariuslundgard/node-hipster-starter.git
-cd node-hipster-starter
-rm -rf .git
-git init
+# Initialize using degit
+degit mariuslundgard/node-hipster-starter my-app
+cd my-app
 # Update package.json and README to make it your own
 npm install
 # Run `npm run watch` to start developing
