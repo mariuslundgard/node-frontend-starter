@@ -9,7 +9,11 @@ if (__DEV__) {
   require('preact/devtools')
 }
 
-const rootElm: any = document.getElementById(style.root)
+const rootElm = document.getElementById(style.root)
+
+if (!rootElm) {
+  throw new Error(`Could not locate root element #${style.root}`)
+}
 
 function renderRoot () {
   const Root = require('./Root').default
