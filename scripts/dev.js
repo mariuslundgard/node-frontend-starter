@@ -36,14 +36,11 @@ watcher.on('ready', () => {
   })
 })
 
+// Create webpack compiler
+const webpackCompiler = webpack(webpackConfig)
+
 // Setup HTTP server
 const app = express()
-app.use((req, res, next) => {
-  require(serverPath).create(config)(req, res, next)
-})
-
-// Setup webpack middleware
-const webpackCompiler = webpack(webpackConfig)
 app.use(
   require('webpack-dev-middleware')(webpackCompiler, {
     hot: true,
@@ -58,6 +55,9 @@ app.use(
     heartbeat: 10 * 1000
   })
 )
+app.use((req, res, next) => {
+  require(serverPath).create(config)(req, res, next)
+})
 
 // Start HTTP server
 app.listen(port, err => {
