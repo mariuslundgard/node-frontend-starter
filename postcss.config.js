@@ -1,9 +1,15 @@
 'use strict'
 
-const postcssCssVariables = require('postcss-css-variables')
+const postcssImport = require('postcss-import')
+const postcssCustomProperties = require('postcss-custom-properties')
 const autoprefixer = require('autoprefixer')
 const postCssNesting = require('postcss-nesting')
 
 module.exports = {
-  plugins: [postCssNesting, postcssCssVariables, autoprefixer]
+  plugins: [
+    postcssImport,
+    postCssNesting,
+    postcssCustomProperties(),
+    autoprefixer
+  ]
 }
