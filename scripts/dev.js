@@ -65,6 +65,8 @@ app.listen(port, err => {
     console.log(err)
     process.exit(1)
   } else {
-    console.log(`Listening at http://localhost:${port}`)
+    console.log('┌──────────────────────────────────────────────────┐')
+    console.log(`│ The server is listening at http://localhost:${port} │`)
+    console.log('└──────────────────────────────────────────────────┘\n')
   }
 })
