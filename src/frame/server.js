@@ -22,6 +22,7 @@ export function create (config: Config) {
 
       res.send(
         layout({
+          lang: 'en',
           title: `${props.title} – node-hipster-starter`,
           head: `<link rel="stylesheet" href="/${
             config.manifest['frame.css']

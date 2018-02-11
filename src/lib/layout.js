@@ -1,6 +1,7 @@
 // @flow
 
 type Data = {
+  lang: string,
   title: string,
   head: string,
   body: string
@@ -9,7 +10,7 @@ type Data = {
 function layout (data: Data) {
   return [
     '<!DOCTYPE html>',
-    '<html lang="en">',
+    `<html lang="${data.lang}">`,
     '<head>',
     '<meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
