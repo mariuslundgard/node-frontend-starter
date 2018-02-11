@@ -19,7 +19,7 @@ describe('frame', () => {
 
     const res = await supertest(app).get('/')
 
-    expect(res.text).toContain('<title>Frame</title>')
+    expect(res.text).toContain('<title>Frame – node-hipster-starter</title>')
     expect(res.text).toContain('<link rel="stylesheet" href="/frame.css">')
     expect(res.text).toContain('<div class="node-hipster-starter-frame">')
     expect(res.text).toContain('<script src="/frame.js"></script>')

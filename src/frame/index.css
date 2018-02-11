@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  background: #c196f5;
   margin: 0;
 }
 
@@ -12,4 +13,9 @@ body {
 
 .frame {
   padding: 15px;
+
+  & h1 {
+    font: inherit;
+    margin: 0 0 10px;
+  }
 }

@@ -17,14 +17,19 @@ export function create (config: Config) {
 
   router.get('/', async (req: $Request, res: $Response) => {
     try {
+      const props = {title: 'Frame'}
+      const encodedProps = encodeURIComponent(JSON.stringify(props))
+
       res.send(
         layout({
-          title: 'Frame',
+          title: `${props.title} – node-hipster-starter`,
           head: `<link rel="stylesheet" href="/${
             config.manifest['frame.css']
           }">`,
           body: [
-            `<div id="${style.root}">${render(<Root />)}</div>`,
+            `<div id="${style.root}" data-encoded-props="${encodedProps}">`,
+            render(<Root {...props} />),
+            '</div>',
             `<script src="/${config.manifest['frame.js']}"></script>`
           ].join('')
         })

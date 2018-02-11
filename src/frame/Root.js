@@ -5,11 +5,17 @@
 import {Component, h} from 'preact'
 import style from './index.css'
 
-class Root extends Component<any> {
+type Props = {
+  title: string
+}
+
+class Root extends Component<Props> {
   render () {
+    const {title} = this.props
+
     return (
       <div class={style.frame}>
-        <h1>Frame</h1>
+        <h1>{title}</h1>
       </div>
     )
   }

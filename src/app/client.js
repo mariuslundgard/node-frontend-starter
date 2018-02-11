@@ -15,9 +15,12 @@ if (!rootElm) {
   throw new Error(`Could not locate root element #${style.root}`)
 }
 
+const encodedProps = rootElm.getAttribute('data-encoded-props')
+const props = encodedProps ? JSON.parse(decodeURIComponent(encodedProps)) : {}
+
 function renderRoot () {
   const Root = require('./Root').default
-  render(<Root />, rootElm, rootElm.firstChild)
+  render(<Root {...props} />, rootElm, rootElm.firstChild)
 }
 
 if (__DEV__) {
