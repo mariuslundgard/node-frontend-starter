@@ -71,7 +71,7 @@
     "flow-bin": "^0.65.0",
     "husky": "^0.14.3",
     "jest": "^22.2.2",
-    "postcss-custom-properties": "^6.2.0",
+    "postcss-custom-properties": "^7.0.0",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.0",
     "postcss-nesting": "^4.2.1",
