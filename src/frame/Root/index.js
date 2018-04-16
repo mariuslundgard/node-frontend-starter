@@ -1,6 +1,4 @@
-// @flow
-
-/** @jsx h */
+// @flow @jsx h
 
 import {Component, h} from 'preact'
 import style from './index.css'

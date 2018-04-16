@@ -3,11 +3,11 @@
 const chokidar = require('chokidar')
 const express = require('express')
 const path = require('path')
-const webpack = require('webpack')
-const webpackConfig = require('../.webpack/development.config')
+const rollup = require('rollup')
+const clientConfig = require('../.rollup/client.config')
 
 const sourcePath = path.resolve(__dirname, '../src')
-const serverPath = path.resolve(__dirname, '../src/server')
+const serverPath = path.resolve(sourcePath, 'server')
 
 require('babel-register')({
   only: sourcePath
@@ -24,6 +24,22 @@ const config = {
 
 const port = 3000
 
+// Setup client-side watcher
+const rollupWatcher = rollup.watch(clientConfig)
+rollupWatcher.on('event', evt => {
+  switch (evt.code) {
+    case 'FATAL':
+      console.error(evt.error.stack)
+      process.exit(1)
+
+    default:
+      clients.forEach(res => {
+        res.write(`data: ${JSON.stringify(evt)}\n\n`)
+      })
+      break
+  }
+})
+
 // Setup server-side watcher
 const watcher = chokidar.watch(sourcePath)
 watcher.on('ready', () => {
@@ -36,25 +52,26 @@ watcher.on('ready', () => {
   })
 })
 
-// Create webpack compiler
-const webpackCompiler = webpack(webpackConfig)
-
 // Setup HTTP server
 const app = express()
-app.use(
-  require('webpack-dev-middleware')(webpackCompiler, {
-    hot: true,
-    noInfo: true,
-    publicPath: webpackConfig.output.publicPath
+
+const clients = []
+app.get('/dev', (req, res) => {
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
+    Connection: 'keep-alive'
   })
-)
-app.use(
-  require('webpack-hot-middleware')(webpackCompiler, {
-    log: console.log,
-    path: '/__webpack_hmr',
-    heartbeat: 10 * 1000
+
+  clients.push(res)
+
+  req.addListener('close', () => {
+    clients.splice(clients.indexOf(res), 1)
   })
-)
+})
+
+app.use(express.static(path.resolve(__dirname, '../dist/client')))
+
 app.use((req, res, next) => {
   require(serverPath).create(config)(req, res, next)
 })
@@ -62,6 +79,8 @@ app.use((req, res, next) => {
 // Start HTTP server
 app.listen(port, err => {
   if (err) {
+    // stop watching
+    rollupWatcher.close()
     console.log(err)
     process.exit(1)
   } else {

@@ -71,5 +71,5 @@ npm install
 * `postcss` with plugins
 * `preact` (’cause it’s tiny)
 * `prettier`
+* `rollup`
 * `supertest`
-* `webpack` (ugh)

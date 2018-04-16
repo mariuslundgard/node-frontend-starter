@@ -1,12 +1,10 @@
-// @flow
-
-/** @jsx h */
+// @flow @jsx h
 
 import {Router} from 'express'
-import layout from 'layout'
+import layout from '../lib/layout'
 import {h} from 'preact'
 import {render} from 'preact-render-to-string'
-import style from './index.css'
+import style from './client.css'
 import Root from './Root'
 
 import type {$Request, $Response} from 'express'
