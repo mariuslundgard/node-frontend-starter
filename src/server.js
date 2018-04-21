@@ -4,7 +4,7 @@ import express from 'express'
 import * as app from './app/server'
 import * as frame from './frame/server'
 
-import type {Config} from './types'
+import type { Config } from './types'
 
 export function create (config: Config) {
   const server = express()

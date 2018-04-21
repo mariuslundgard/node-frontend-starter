@@ -1,6 +1,6 @@
 // @flow @jsx h
 
-import {Component, h} from 'preact'
+import { Component, h } from 'preact'
 import style from './index.css'
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 
 class Root extends Component<Props> {
   render () {
-    const {title} = this.props
+    const { title } = this.props
 
     return (
       <div class={style.frame}>

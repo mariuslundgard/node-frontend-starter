@@ -1,6 +1,6 @@
 // @jsx h
 
-import {h, render} from 'preact'
+import { h, render } from 'preact'
 import style from './client.css'
 import Root from './Root'
 

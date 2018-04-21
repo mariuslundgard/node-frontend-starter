@@ -1,21 +1,21 @@
 // @flow @jsx h
 
-import {Router} from 'express'
+import { Router } from 'express'
 import layout from '../lib/layout'
-import {h} from 'preact'
-import {render} from 'preact-render-to-string'
+import { h } from 'preact'
+import { render } from 'preact-render-to-string'
 import style from './client.css'
 import Root from './Root'
 
-import type {$Request, $Response} from 'express'
-import type {Config} from '../types'
+import type { $Request, $Response } from 'express'
+import type { Config } from '../types'
 
 export function create (config: Config) {
   const router = Router()
 
   router.get('/', async (req: $Request, res: $Response) => {
     try {
-      const props = {title: 'Frame'}
+      const props = { title: 'Frame' }
       const encodedProps = encodeURIComponent(JSON.stringify(props))
 
       res.send(

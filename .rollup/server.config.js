@@ -26,7 +26,7 @@ const babelOpts = {
     'transform-class-properties',
     'transform-flow-strip-types',
     'transform-object-rest-spread',
-    ['transform-react-jsx', {pragma: 'h'}],
+    ['transform-react-jsx', { pragma: 'h' }],
     [
       'css-modules-transform',
       {
