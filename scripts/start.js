@@ -5,7 +5,7 @@ const express = require('express')
 const path = require('path')
 
 const config = {
-  manifest: require('../build/client/manifest.json')
+  manifest: require('../dist/client/manifest.json')
 }
 
 const port = 3000
@@ -13,9 +13,9 @@ const port = 3000
 // Setup HTTP server
 const app = express()
 app.use(compression())
-app.use(express.static(path.resolve(__dirname, '../build/client')))
+app.use(express.static(path.resolve(__dirname, '../dist/client')))
 app.use((req, res, next) => {
-  require('../build/server').create(config)(req, res, next)
+  require('../dist/server').create(config)(req, res, next)
 })
 
 // Start HTTP server

@@ -1,0 +1,10 @@
+@import '../../lib/vars.css';
+
+.frame {
+  padding: 15px;
+
+  & h1 {
+    font: inherit;
+    margin: 0 0 10px;
+  }
+}
