@@ -17,7 +17,7 @@ const babelOpts = {
       {
         modules: false,
         targets: {
-          node: '9.11.1'
+          node: '10.8'
         }
       }
     ]

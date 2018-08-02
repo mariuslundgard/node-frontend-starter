@@ -1,4 +1,4 @@
-FROM node:9.11.1-alpine
+FROM node:10.8-alpine
 
 MAINTAINER Marius Lundgård <studio@mariuslundgard.com>
 
