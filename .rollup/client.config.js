@@ -8,7 +8,7 @@ const babel = require('rollup-plugin-babel')
 const resolve = require('rollup-plugin-node-resolve')
 const postcss = require('rollup-plugin-postcss')
 const replace = require('rollup-plugin-replace')
-const uglify = require('rollup-plugin-uglify')
+const { uglify } = require('rollup-plugin-uglify')
 
 const babelOpts = {
   presets: [
