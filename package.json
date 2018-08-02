@@ -38,8 +38,8 @@
   "dependencies": {
     "compression": "^1.7.3",
     "express": "^4.16.3",
-    "preact": "^8.2.7",
-    "preact-render-to-string": "^3.7.0"
+    "preact": "^8.2.9",
+    "preact-render-to-string": "^3.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.0.2",
