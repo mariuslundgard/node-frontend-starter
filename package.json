@@ -9,6 +9,7 @@
     "build-server": "cross-env NODE_ENV=production rollup --config .rollup/server.config.js",
     "clean": "rimraf dist",
     "clean-install": "rimraf node_modules package-lock.json && npm install",
+    "dev": "node scripts/dev",
     "docker-build": "docker build -t mariuslundgard/node-hipster-starter .",
     "docker-run": "docker run --rm --publish 3000:3000 mariuslundgard/node-hipster-starter",
     "format": "prettier-eslint --write \"{.rollup,scripts,src}/**/*.js\"",
@@ -16,10 +17,9 @@
     "prebuild": "npm run clean",
     "precommit": "npm run lint && npm run typecheck && npm test",
     "prewatch": "npm run clean",
-    "start": "node scripts/start",
+    "start": "NODE_ENV=production node scripts/start",
     "test": "jest",
-    "typecheck": "flow check",
-    "watch": "node scripts/dev"
+    "typecheck": "flow check"
   },
   "author": "Marius Lundgård <studio@mariuslundgard.com>",
   "license": "MIT",
