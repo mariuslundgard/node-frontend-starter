@@ -71,7 +71,7 @@
     "postcss-custom-properties": "^7.0.0",
     "postcss-import": "^11.1.0",
     "postcss-nesting": "^6.0.0",
-    "prettier": "^1.12.1",
+    "prettier": "^1.14.0",
     "prettier-eslint-cli": "^4.7.1",
     "rimraf": "^2.6.2",
     "rollup": "^0.58.1",
