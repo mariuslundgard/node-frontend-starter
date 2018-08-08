@@ -5,8 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "build": "npm run build-client && npm run build-server",
-    "build-client": "cross-env NODE_PATH=src/lib rollup --config .rollup/client.config.js && node scripts/hash-bundles.js",
-    "build-server": "cross-env NODE_PATH=src/lib rollup --config .rollup/server.config.js",
+    "build-client": "cross-env NODE_ENV=production NODE_PATH=src/lib rollup --config .rollup/client.config.js && node scripts/hash-bundles.js",
+    "build-server": "cross-env NODE_ENV=production NODE_PATH=src/lib rollup --config .rollup/server.config.js",
     "clean": "rimraf dist",
     "clean-install": "rimraf node_modules package-lock.json && npm install",
     "dev": "cross-env NODE_PATH=src/lib node scripts/dev",
@@ -17,7 +17,7 @@
     "prebuild": "npm run clean",
     "precommit": "npm run lint && npm run typecheck && npm test",
     "prewatch": "npm run clean",
-    "start": "node scripts/start",
+    "start": "cross-env NODE_ENV=production node scripts/start",
     "test": "cross-env NODE_PATH=src/lib jest",
     "typecheck": "flow check"
   },

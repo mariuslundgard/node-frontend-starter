@@ -18,9 +18,6 @@ ADD . /usr/src/app
 # Copy cached node modules
 RUN cp -a /tmp/npm/node_modules .
 
-# Set environment variables
-ENV NODE_ENV=production
-
 # Build application
 RUN npm run build
 
