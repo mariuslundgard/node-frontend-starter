@@ -1,21 +1,19 @@
-'use strict'
+// @flow
 
-const chokidar = require('chokidar')
-const path = require('path')
-const clientConfig = require('../.rollup/client.config')
+import chokidar from 'chokidar'
+import { setupHotReloading } from 'dev-utils/server'
+import path from 'path'
+import { createServer } from 'server'
+import clientConfig from '../.rollup/client.config'
+
+import type { Request, Response } from 'server'
+import type { Config } from '../src/types'
 
 const sourcePath = path.resolve(__dirname, '../src')
 const serverPath = path.resolve(__dirname, '../src/server')
 const staticPath = path.resolve(__dirname, '../dist/client')
 
-require('babel-register')({
-  only: sourcePath
-})
-
-const { createServer } = require('server')
-const { setupHotReloading } = require('dev-utils/server')
-
-const config = {
+const config: Config = {
   baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   manifest: {
     'app.css': 'app.css',
@@ -37,7 +35,7 @@ const server = createServer()
 const devServer = setupHotReloading({ server, rollupConfig: clientConfig })
 
 // Connect application
-server.use((req, res, next) =>
+server.use((req: Request, res: Response, next) =>
   require(serverPath).create(config)(req, res, next)
 )
 

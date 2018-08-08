@@ -2,10 +2,10 @@
 
 import * as rollup from 'rollup'
 
-import type { $Application, $Request, $Response } from 'express'
+import type { Server, Request, Response } from 'server'
 
 type HotReloadingOpts = {
-  server: $Application,
+  server: Server,
   rollupConfig: any[]
 }
 
@@ -13,7 +13,7 @@ export function setupHotReloading (opts: HotReloadingOpts) {
   const { server } = opts
   const clients = []
 
-  server.get('/dev', (req: $Request, res: $Response) => {
+  server.get('/dev', (req: Request, res: Response) => {
     const file: any = req.query.file
 
     console.log(`[dev] client connected (file=${file})`)

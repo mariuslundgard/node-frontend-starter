@@ -8,7 +8,7 @@ import { createServer } from 'server'
 import style from './main.css'
 import Root from './Root'
 
-import type { $Request, $Response } from 'express'
+import type { Request, Response } from 'server'
 import type { Config } from '../types'
 
 export function create (config: Config) {
@@ -19,7 +19,7 @@ export function create (config: Config) {
     return `${baseUrl}/${manifest[name]}`
   }
 
-  server.get('/', async (req: $Request, res: $Response) => {
+  server.get('/', async (req: Request, res: Response) => {
     try {
       const props = { title: 'App' }
 
