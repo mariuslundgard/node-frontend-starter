@@ -8,7 +8,10 @@ const postcssNesting = require('postcss-nesting')
 
 module.exports = {
   plugins: [
-    postcssImport,
+    postcssImport({
+      root: __dirname,
+      path: process.env.NODE_PATH.split(/[;:]/)
+    }),
     postcssNesting,
     postcssCustomProperties(),
     autoprefixer,

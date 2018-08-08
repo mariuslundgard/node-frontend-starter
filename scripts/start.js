@@ -4,8 +4,13 @@ const compression = require('compression')
 const express = require('express')
 const path = require('path')
 
+const serverPath = path.resolve(__dirname, '../dist/server')
+const staticPath = path.resolve(__dirname, '../dist/client')
+
 const config = {
-  manifest: require('../dist/client/manifest.json')
+  baseUrl: process.env.BASE_URL || '',
+  manifest: require('../dist/client/manifest.json'),
+  staticPath
 }
 
 const port = 3000
@@ -13,10 +18,7 @@ const port = 3000
 // Setup HTTP server
 const app = express()
 app.use(compression())
-app.use(express.static(path.resolve(__dirname, '../dist/client')))
-app.use((req, res, next) => {
-  require('../dist/server').create(config)(req, res, next)
-})
+app.use((req, res, next) => require(serverPath).create(config)(req, res, next))
 
 // Start HTTP server
 const server = app.listen(port, err => {

@@ -1,35 +1,39 @@
 // @flow @jsx h
 
 import { Router } from 'express'
-import layout from '../lib/layout'
+import layout from 'layout'
+import { encode } from 'mount-utils'
 import { h } from 'preact'
 import { render } from 'preact-render-to-string'
-import style from './client.css'
+import style from './main.css'
 import Root from './Root'
 
 import type { $Request, $Response } from 'express'
 import type { Config } from '../types'
 
 export function create (config: Config) {
+  const { baseUrl, manifest } = config
   const router = Router()
+
+  function assetUrl (name) {
+    return `${baseUrl}/${manifest[name]}`
+  }
 
   router.get('/', async (req: $Request, res: $Response) => {
     try {
       const props = { title: 'Frame' }
-      const encodedProps = encodeURIComponent(JSON.stringify(props))
 
       res.send(
         layout({
           lang: 'en',
           title: `${props.title} – node-hipster-starter`,
-          head: `<link rel="stylesheet" href="/${
-            config.manifest['frame.css']
-          }">`,
+          head: `<link rel="stylesheet" href="${assetUrl('frame.css')}">`,
           body: [
-            `<div id="${style.root}" data-encoded-props="${encodedProps}">`,
+            `<div id="${style.root}" data-encoded-props="${encode(props)}">`,
             render(<Root {...props} />),
             '</div>',
-            `<script src="/${config.manifest['frame.js']}"></script>`
+            `<script type="module" src="${assetUrl('frame.mjs')}"></script>`,
+            `<script nomodule src="${assetUrl('frame.js')}"></script>`
           ].join('')
         })
       )

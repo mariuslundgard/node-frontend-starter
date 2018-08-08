@@ -10,10 +10,13 @@ describe('frame', () => {
 
     app.use(
       server.create({
+        baseUrl: '',
         manifest: {
+          'frame.css': 'frame.css',
           'frame.js': 'frame.js',
-          'frame.css': 'frame.css'
-        }
+          'frame.mjs': 'frame.mjs'
+        },
+        staticPath: ''
       })
     )
 
@@ -22,6 +25,9 @@ describe('frame', () => {
     expect(res.text).toContain('<title>Frame – node-hipster-starter</title>')
     expect(res.text).toContain('<link rel="stylesheet" href="/frame.css">')
     expect(res.text).toContain('<div class="node-hipster-starter-frame">')
-    expect(res.text).toContain('<script src="/frame.js"></script>')
+    expect(res.text).toContain(
+      '<script type="module" src="/frame.mjs"></script>'
+    )
+    expect(res.text).toContain('<script nomodule src="/frame.js"></script>')
   })
 })

@@ -52,7 +52,10 @@ module.exports = {
     resolve({
       jsnext: true,
       main: true,
-      browser: true
+      browser: true,
+      customResolveOptions: {
+        paths: process.env.NODE_PATH.split(/[;:]/)
+      }
     }),
     babel({
       ...babelOpts,

@@ -1,15 +1,15 @@
 {
   "name": "node-hipster-starter",
   "version": "1.0.0",
-  "description": "Real hipster starter repos don’t follow no trend (and don’t use no emojis).",
+  "description": "A starter repo for rolling out state-of-the-art frontend apps.",
   "main": "src/server.js",
   "scripts": {
     "build": "npm run build-client && npm run build-server",
-    "build-client": "cross-env NODE_ENV=production rollup --config .rollup/client.config.js && node scripts/hash-bundles.js",
-    "build-server": "cross-env NODE_ENV=production rollup --config .rollup/server.config.js",
+    "build-client": "cross-env NODE_PATH=src/lib rollup --config .rollup/client.config.js && node scripts/hash-bundles.js",
+    "build-server": "cross-env NODE_PATH=src/lib rollup --config .rollup/server.config.js",
     "clean": "rimraf dist",
     "clean-install": "rimraf node_modules package-lock.json && npm install",
-    "dev": "node scripts/dev",
+    "dev": "cross-env NODE_PATH=src/lib node scripts/dev",
     "docker-build": "docker build -t mariuslundgard/node-hipster-starter .",
     "docker-run": "docker run --rm --publish 3000:3000 mariuslundgard/node-hipster-starter",
     "format": "prettier-eslint --write \"{.rollup,scripts,src}/**/*.js\"",
@@ -17,8 +17,8 @@
     "prebuild": "npm run clean",
     "precommit": "npm run lint && npm run typecheck && npm test",
     "prewatch": "npm run clean",
-    "start": "NODE_ENV=production node scripts/start",
-    "test": "jest",
+    "start": "node scripts/start",
+    "test": "cross-env NODE_PATH=src/lib jest",
     "typecheck": "flow check"
   },
   "author": "Marius Lundgård <studio@mariuslundgard.com>",
@@ -39,7 +39,8 @@
     "compression": "^1.7.3",
     "express": "^4.16.3",
     "preact": "^8.3.0",
-    "preact-render-to-string": "^3.8.0"
+    "preact-render-to-string": "^3.8.0",
+    "regenerator-runtime": "^0.12.1"
   },
   "devDependencies": {
     "autoprefixer": "^9.1.0",
@@ -53,6 +54,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "caniuse-api": "^3.0.0",
     "chokidar": "^2.0.4",
     "cross-env": "^5.2.0",
     "cssnano": "^4.0.5",
