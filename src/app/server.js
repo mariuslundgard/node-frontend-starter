@@ -1,10 +1,10 @@
 // @flow @jsx h
 
-import { Router } from 'express'
 import layout from 'layout'
 import { encode } from 'mount-utils'
 import { h } from 'preact'
 import { render } from 'preact-render-to-string'
+import { createServer } from 'server'
 import style from './main.css'
 import Root from './Root'
 
@@ -13,13 +13,13 @@ import type { Config } from '../types'
 
 export function create (config: Config) {
   const { baseUrl, manifest } = config
-  const router = Router()
+  const server = createServer()
 
   function assetUrl (name) {
     return `${baseUrl}/${manifest[name]}`
   }
 
-  router.get('/', async (req: $Request, res: $Response) => {
+  server.get('/', async (req: $Request, res: $Response) => {
     try {
       const props = { title: 'App' }
 
@@ -43,5 +43,5 @@ export function create (config: Config) {
     }
   })
 
-  return router
+  return server
 }

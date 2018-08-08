@@ -1,15 +1,16 @@
 // @flow
 
-import express from 'express'
+import { createServer, staticMiddleware } from 'server'
 import * as app from './app/server'
 import * as frame from './frame/server'
 
 import type { Config } from './types'
 
 export function create (config: Config) {
-  const server = express()
+  const server = createServer()
 
-  server.use(express.static(config.staticPath))
+  // Apply middleware
+  server.use(staticMiddleware(config.staticPath))
   server.use('/', app.create(config))
   server.use('/frame', frame.create(config))
 

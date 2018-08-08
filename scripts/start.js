@@ -17,6 +17,7 @@ const port = 3000
 
 // Setup HTTP server
 const app = express()
+app.disable('x-powered-by')
 app.use(compression())
 app.use((req, res, next) => require(serverPath).create(config)(req, res, next))
 

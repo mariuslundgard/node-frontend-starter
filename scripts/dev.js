@@ -1,7 +1,6 @@
 'use strict'
 
 const chokidar = require('chokidar')
-const express = require('express')
 const path = require('path')
 const clientConfig = require('../.rollup/client.config')
 
@@ -13,6 +12,7 @@ require('babel-register')({
   only: sourcePath
 })
 
+const { createServer } = require('server')
 const { setupHotReloading } = require('dev-utils/server')
 
 const config = {
@@ -31,16 +31,18 @@ const config = {
 const port = 3000
 
 // Setup HTTP server
-const app = express()
+const server = createServer()
 
 // Setup client-side hot reloading
-const devServer = setupHotReloading({ app, rollupConfig: clientConfig })
+const devServer = setupHotReloading({ server, rollupConfig: clientConfig })
 
 // Connect application
-app.use((req, res, next) => require(serverPath).create(config)(req, res, next))
+server.use((req, res, next) =>
+  require(serverPath).create(config)(req, res, next)
+)
 
 // Start HTTP server
-app.listen(port, err => {
+server.listen(port, err => {
   if (err) {
     // stop watching
     devServer.close()
